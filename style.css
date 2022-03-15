@@ -1,0 +1,1045 @@
+/*css menu*/
+/* Google Font Import - Poppins */
+@font-face {
+    font-family: "Block Berthold";
+    src: url("fonts/Block_Berthold.otf");
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("fonts/Gotham-Bold.otf");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gotham";
+}
+
+:root{
+    /* ===== Colors ===== */
+    --body-color: #FBFAFB;
+    --sidebar-color: #FEDC44;
+    --primary-color: #FF963A;
+    --primary-color-light: #FFFFFF;
+    --toggle-color: #FFF;
+    --text-color: #000000;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+body{
+    min-height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+    overflow-x: hidden;
+    cursor: url("img/cursor.png"), auto;
+}
+
+::selection{
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+body.dark{
+    --body-color: #18191a;
+    --sidebar-color: #FEDC44;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+}
+
+/* ===== Sidebar ===== */
+ .sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
+    z-index: 100;
+    border-right: 5px solid black;
+     animation: slideLeft 0.5s;
+ }
+.sidebar.close{
+    width: 88px;
+
+}
+
+/* ===== Reusable code - Here ===== */
+.sidebar li{
+    height: 50px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 50%;
+}
+
+.sidebar header .image,
+.sidebar .icon{
+    min-width: 60px;
+    border-radius: 6px;
+}
+
+.sidebar .icon{
+    min-width: 60px;
+    border-radius: 6px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+.menu-links{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.icon-menu, .icon-menu-2, .icon-menu-3, .icon-menu-4{
+    margin-top: 70px;
+}
+.icon-menu{
+    animation: slideLeft 0.7s;
+    margin-bottom: 20px;
+}
+.icon-menu-2{
+    animation: slideLeft 0.9s;
+    margin-bottom: 20px;
+}
+.icon-menu-3{
+    animation: slideLeft 1.1s;
+    margin-bottom: 20px;
+}
+.icon-menu-4{
+    animation: slideLeft 1.3s;
+    margin-bottom: 20px;
+}
+.menu-logo{
+    animation: slideLeft 0.5s;
+    margin-bottom: 20px;
+}
+
+.sidebar .text,
+.sidebar .icon{
+    color: var(--text-color);
+    transition: var(--tran-03);
+}
+
+.sidebar .text{
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 1;
+}
+.sidebar.close .text{
+    opacity: 0;
+}
+/* =========================== */
+
+.sidebar header{
+    position: relative;
+}
+
+.sidebar header .image-text{
+    display: flex;
+    align-items: center;
+}
+.sidebar header .logo-text{
+    display: flex;
+    flex-direction: column;
+}
+header .image-text {
+    margin-top: 2px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.name {
+    margin-top: 2px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+header .image-text .profession{
+    font-size: 16px;
+    margin-top: -2px;
+    display: block;
+}
+
+.sidebar header .image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar header .image img{
+    width: 40px;
+    border-radius: 6px;
+}
+
+.sidebar header .toggle{
+    position: absolute;
+    top: 50%;
+    right: -63px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 20px;
+    width: 40px;
+    /*background-color: var(--primary-color);*/
+    color: var(--sidebar-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+
+.toggle{
+    margin-top: 35vh;
+    transform: rotate(20deg);
+    animation: slideLeft 1.3s;
+    left: 90%;
+}
+.main-menu{
+    position: relative;
+    left: 18%;
+}
+
+body.dark .sidebar header .toggle{
+    color: var(--text-color);
+}
+
+.sidebar.close .toggle{
+    transform: translateY(-50%) rotate(0deg);
+}
+
+.sidebar .menu{
+    margin-top: 40px;
+}
+
+.sidebar li a{
+    list-style: none;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: var(--tran-03);
+}
+
+.sidebar li a:hover{
+    background-color: var(--primary-color);
+}
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: var(--primary-color-light);
+}
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text{
+    color: var(--text-color);
+}
+
+.sidebar .menu-bar{
+    height: calc(100% - 55px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll;
+}
+.menu-bar::-webkit-scrollbar{
+    display: none;
+}
+.sidebar .menu-bar .mode{
+    border-radius: 6px;
+    background-color: var(--primary-color-light);
+    position: relative;
+    transition: var(--tran-05);
+}
+
+
+/*css site*/
+
+/*partie home*/
+#home{
+    background: #FBFAFB;
+}
+
+.h2_hello, .im{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    animation: slideLeft 1s;
+}
+
+.h2_hello{
+    font-size: max(2.5vw, 30px);
+    top: 42%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+.im{
+    font-size: max(1.75vw, 20px);
+    top: 48%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+.h1_name{
+    font-family: "Block Berthold";
+    font-size: max(3.5vw, 35px);
+    text-align: center;
+    vertical-align: center;
+    position: absolute;
+    top: 54%;
+    transform: translateY(-50%);
+    width: 100%;
+    animation: slideLeft 1s;
+}
+
+.PP-edit{
+    width: 30%;
+    max-width: 425px;
+    min-width: 225px;
+    height: auto;
+    margin-left: 70%;
+    margin-top: 5%;
+    border: 5px solid black;
+    border-radius: 20px;
+    position: absolute;
+    box-shadow: black 3px 3px;
+    animation: slideRight 2s;
+}
+
+.tit-txt{
+    font-family: "Block Berthold";
+    font-size: 22px;
+    position: absolute;
+    top: 90vh;
+    left: 110px;
+    animation: slideRight 2.4s;
+}
+
+#carre{
+    width: 80px;
+    height: 80px;
+    background-color: #5650FF;
+    border: 5px solid black;
+    border-radius: 10px;
+    position: absolute;
+    top: -2%;
+    left: 65%;
+    transform: rotate(45deg);
+}
+
+section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.scrolldown {
+    position: absolute;
+    top: 97vh;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    transform: translateY(-80px) translateX(-50%)
+        rotate(45deg);
+}
+
+.scrolldown span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-bottom: 4px solid black;
+    border-right: 4px solid black;
+    border-radius: 3px;
+    opacity: 0;
+    animation: animate 1.5s linear infinite;
+}
+.scrolldown span:nth-child(1){
+    transform: translate(-15px, -15px);
+    animation-delay: -0.4s;
+}
+.scrolldown span:nth-child(1){
+    transform: translate(15px, 15px);
+    animation-delay: 0s;
+}
+
+@keyframes animate {
+    0%{
+        top: -5px;
+        left: -5px;
+        opacity: 0;
+    }
+    25%{
+        top: 0px;
+        left: 0px;
+        opacity: 1;
+    }
+    50%, 100%{
+        top: 5px;
+        left: 5px;
+        opacity: 0;
+    }
+}
+
+
+/*partie projects*/
+.h2-projets, .h2-about, .h2-contact{
+    font-family: "Block Berthold";
+    font-size: 60px;
+    position: relative;
+    left: 18%;
+    top: 60px;
+}
+
+.black-data, .collabyu, .ronde-bosmont, .minifig-lego, .asso-memo{
+    font-size: 18px;
+}
+
+/*black data (gauche)*/
+
+.black-data-img{
+    position: relative;
+    top: 110px;
+    left: 21%;
+    width: 30%;
+    max-width: 460px;
+    min-width: 150px;
+    height: auto;
+    border: 5px solid black;
+    border-radius: 10px;
+    box-shadow: black 3px 3px;
+}
+.trait-black{
+    border: 3px solid black;
+    width: 530px;
+    position: relative;
+    top: -120px;
+    left: 38%;
+    z-index: -10;
+}
+.fond-rect-black{
+    width: 50%;
+    max-width: 390px;
+    min-width: 200px;
+    height: auto;
+    padding: 5px 5px 5px;
+    background-color: #5650FF;
+    border: 5px solid black;
+    border-radius: 20px;
+    position: relative;
+    left: 60%;
+    top: -215px;
+    box-shadow: black 3px 3px;
+}
+.titre-black, .text-black{
+    position: relative;
+    left: 3%;
+}
+.titre-black{
+    font-family: "Block Berthold";
+    font-size: 2.5rem;
+    color: #FBFAFB;
+    top: 2%;
+}
+.text-black, .see-more-black{
+    top: 10%;
+    font-size: 0.9rem;
+    color: #FBFAFB;
+}
+.fond-rect-black-see{
+    width: 30%;
+    max-width: 250px;
+    min-width: 150px;
+    height: 60px;
+    background-color: #5650FF;
+    border: 5px solid black;
+    border-radius: 30px;
+    position: relative;
+    left: 63%;
+    top: -160px;
+    box-shadow: black 3px 3px;
+}
+/*.trait-black-see-1, .trait-black-see-2{*/
+/*    border: 3px solid black;*/
+/*    width: 10vw;*/
+/*    position: relative;*/
+/*    z-index: -10;*/
+/*    transform: rotate(90deg);*/
+/*}*/
+/*.trait-black-see-1{*/
+/*    top: -75px;*/
+/*    left: 30%;*/
+/*}*/
+/*.trait-black-see-2{*/
+/*    top: -75px;*/
+/*    left: 0;*/
+/*}*/
+.see-more-black{
+    font-size: 1.2rem;
+    display: block;
+    text-align: center;
+    margin-top: 6%;
+    text-decoration: none
+}
+
+/*collabyu (droite)*/
+.collabyu-img{
+    width: 40%;
+    max-width: 690px;
+    min-width: 150px;
+    height: auto;
+    border: 5px solid black;
+    border-radius: 10px;
+    position: relative;
+    top: -114px;
+    left: 56%;
+    box-shadow: black -3px 3px;
+}
+.trait-collab{
+    border: 3px solid black;
+    width: 400px;
+    position: relative;
+    top: -392px;
+    left: 668px;
+    z-index: -10;
+}
+.fond-rect-collab{
+    width: 420px;
+    height: auto;
+    padding: 5px 5px 5px;
+    background-color: #FF963A;
+    border: 5px solid black;
+    border-radius: 20px;
+    position: relative;
+    left: 22%;
+    top: 290px;
+    box-shadow: black -3px 3px;
+}
+.titre-collab, .text-collab{
+    position: relative;
+    left: 3%;
+}
+.titre-collab{
+    font-family: "Block Berthold";
+    font-size: 2.5rem;
+    color: #FBFAFB;
+    top: 2%;
+}
+.text-collab, .see-more-collab{
+    top: 10%;
+    font-size: 0.9rem;
+    color: #FBFAFB;
+}
+.fond-rect-collab-see{
+    width: 30%;
+    max-width: 250px;
+    min-width: 150px;
+    height: 60px;
+    background-color: #FF963A;
+    border: 5px solid black;
+    border-radius: 30px;
+    position: relative;
+    left: 25%;
+    top: 330px;
+    box-shadow: black -3px 3px;
+}
+.trait-collab-see-1, .trait-collab-see-2{
+    border: 3px solid black;
+    width: 10vw;
+    position: relative;
+    z-index: -10;
+    transform: rotate(90deg);
+}
+.trait-collab-see-1{
+    top: -75px;
+    left: 115px;
+}
+.trait-collab-see-2{
+    top: -75px;
+    left: -57px;
+}
+.see-more-collab{
+    font-size: 1.2rem;
+    display: block;
+    text-align: center;
+    margin-top: 6%;
+    text-decoration: none
+}
+
+/*ronde bosmont (gauche)*/
+.ronde-bosmont-img{
+    width: 50%;
+    max-width: 576px;
+    min-width: 150px;
+    height: auto;
+    border: 5px solid black;
+    border-radius: 10px;
+    position: relative;
+    top: 8vh;
+    left: 20%;
+    box-shadow: black 3px 3px;
+}
+.trait-ronde{
+    border: 3px solid black;
+    width: 380px;
+    position: relative;
+    top: -145px;
+    left: 50%;
+    z-index: -10;
+}
+.fond-rect-ronde{
+    width: 360px;
+    height: auto;
+    padding: 5px 5px 5px;
+    background-color: #0FA958;
+    border: 5px solid black;
+    border-radius: 20px;
+    position: relative;
+    left: 64%;
+    top: -220px;
+    box-shadow: black 3px 3px;
+}
+.titre-ronde, .text-ronde{
+    position: relative;
+    left: 3%;
+}
+.titre-ronde{
+    font-family: "Block Berthold";
+    font-size: 2.5rem;
+    color: #FBFAFB;
+    top: 2%;
+}
+.text-ronde, .see-more-ronde{
+    top: 10%;
+    font-size: 0.9rem;
+    color: #FBFAFB;
+}
+.fond-rect-ronde-see{
+    width: 30%;
+    max-width: 250px;
+    min-width: 150px;
+    height: 60px;
+    background-color: #0FA958;
+    border: 5px solid black;
+    border-radius: 30px;
+    position: relative;
+    left: 68%;
+    top: -170px;
+    box-shadow: black 3px 3px;
+}
+.trait-ronde-see-2{
+    border: 3px solid black;
+    width: 10vw;
+    position: relative;
+    z-index: -10;
+    transform: rotate(90deg);
+}
+.trait-ronde-see-2{
+    top: -50px;
+    left: -39px;
+}
+.see-more-ronde{
+    font-size: 1.2rem;
+    display: block;
+    text-align: center;
+    margin-top: 6%;
+    text-decoration: none
+}
+
+
+/*minifig (droite)*/
+.minifig-img{
+    width: 40%;
+    max-width: 550px;
+    min-width: 150px;
+    height: auto;
+    border: 5px solid black;
+    border-radius: 10px;
+    position: relative;
+    top: 19px;
+    left: 56%;
+    box-shadow: black -3px 3px;
+}
+.trait-minifig{
+    border: 3px solid black;
+    width: 20vw;
+    position: relative;
+    top: -200px;
+    left: 40vw;
+    z-index: -10;
+}
+.fond-rect-minifig{
+    width: 384px;
+    height: auto;
+    padding: 5px 5px 5px;
+    background-color: #F64551;
+    border: 5px solid black;
+    border-radius: 20px;
+    position: relative;
+    left: 22%;
+    top: -270px;
+    box-shadow: black -3px 3px;
+}
+.titre-minifig, .text-minifig{
+    position: relative;
+    left: 3%;
+}
+.titre-minifig{
+    font-family: "Block Berthold";
+    font-size: 2.5rem;
+    color: #FBFAFB;
+    top: 2%;
+}
+.text-minifig{
+    top: 10%;
+    font-size: 0.9rem;
+    color: #FBFAFB;
+}
+
+/*asso memo (gauche)*/
+.memo-img{
+    width: 25%;
+    max-width: 350px;
+    min-width: 150px;
+    height: auto;
+    border: 5px solid black;
+    border-radius: 10px;
+    position: relative;
+    top: 2vh;
+    left: 20%;
+    box-shadow: black 3px 3px;
+}
+.trait-memo{
+    border: 3px solid black;
+    width: 20vw;
+    position: relative;
+    top: -17vh;
+    left: 680px;
+    z-index: -10;
+}
+.fond-rect-memo{
+    width: 460px;
+    height: auto;
+    padding: 5px 5px 5px;
+    background-color: #2A5A94;
+    border: 5px solid black;
+    border-radius: 20px;
+    position: relative;
+    left: 58%;
+    top: -26vh;
+    box-shadow: black 3px 3px;
+}
+.titre-memo, .text-memo{
+    position: relative;
+    left: 3%;
+}
+.titre-memo{
+    font-family: "Block Berthold";
+    font-size: 2.5rem;
+    color: #FBFAFB;
+    top: 2%;
+}
+.text-memo, .see-more-memo{
+    top: 10%;
+    font-size: 0.9rem;
+    color: #FBFAFB;
+}
+.fond-rect-memo-see{
+    width: 30%;
+    max-width: 250px;
+    min-width: 150px;
+    height: 60px;
+    background-color: #2A5A94;
+    border: 5px solid black;
+    border-radius: 30px;
+    position: relative;
+    left: 64%;
+    top: -190px;
+    box-shadow: black 3px 3px;
+}
+.trait-memo-see-2{
+    border: 3px solid black;
+    width: 192px;
+    position: relative;
+    z-index: -10;
+    transform: rotate(90deg);
+    top: -8vh;
+    left: 10%;
+}
+.see-more-memo{
+    font-size: 1.2rem;
+    display: block;
+    text-align: center;
+    margin-top: 6%;
+    text-decoration: none;
+}
+
+
+/*about me*/
+.h2-about{
+    top: 39px;
+}
+
+.fond-rect-cadre1, .fond-rect-cadre2{
+    width: 50%;
+    max-width: 530px;
+    min-width: 200px;
+    height: 180px;
+    background-color: #FFEFCF;
+    border: 5px solid black;
+    border-radius: 20px;
+    position: relative;
+    left: 20%;
+    top: 80px;
+    box-shadow: black 3px 3px;
+}
+.fond-rect-cadre2{
+    height: 280px;
+    left: 55%;
+    top: 20vh;
+}
+.txt-cadre1, .txt-cadre2{
+    color: black;
+    font-size: 18px;
+    position: relative;
+}
+.txt-cadre1{
+    left: 2%;
+    top: 20px;
+}
+.txt-cadre2{
+    left: 20px;
+    top: 1vh;
+}
+.txt-cadre2{
+    list-style-type: none;
+    margin-top: 2vh;
+}
+.li-cadre2{
+    margin-bottom: 1vh;
+    align-items: center;
+}
+
+/*.trait-cadre1, .trait-cadre2{*/
+/*    border: 4px solid black;*/
+/*    width: 22vw;*/
+/*    position: relative;*/
+/*    top: 33vh;*/
+/*    left: 33vw;*/
+/*    z-index: -10;*/
+/*}*/
+/*.trait-cadre1{*/
+/*    transform: rotate(90deg);*/
+/*    top: 11.8vh;*/
+/*    left: 22vw;*/
+/*}*/
+.CV{
+    background-color: #FFCA00;
+    border: 4px solid black;
+    border-radius: 50px;
+    width: 230px;
+    height: 56px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: 240px;
+}
+.txt-CV{
+    font-family: "Block Berthold";
+    font-size: 26px;
+    color: #FBFAFB;
+    text-decoration: none;
+    display: block;
+    margin: 0 auto;
+}
+.barre-adobe, .barre-office, .barre-prog, .barre-team{
+    width: 180px;
+    position: relative;
+    left: 50%;
+    top: -18px;
+}
+.li-cadre2{
+    position: relative;
+    top: 10px;
+}
+
+/*contact*/
+.h2-contact{
+    margin-top: 15vw;
+    margin-bottom: 5vw;
+}
+
+/*footer*/
+.txt-footer{
+    font-family: "Block Berthold";
+    font-size: 20px;
+    text-align: center;
+    vertical-align: center;
+    position: absolute;
+    transform: translateY(-50%);
+    width: 100%;
+    margin-top: 8vw;
+}
+.id-discord{
+    display: none;
+    visibility: hidden;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-1, .btn-2, .btn-3{
+    text-decoration: none;
+    margin: 8vw;
+}
+
+
+.btn-1{
+    background: #2A5A94;
+    color: #FBFAFB;
+    border-radius: 20px;
+    /*border: 2.5px solid black;*/
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+.btn-1::after, .btn-1::before {
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    background: #2A5A94;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+.btn-1:hover {
+    transform: translate(-12px, -12px)
+}
+.btn-1:hover::after {
+    transform: translate(6px, 6px)
+}
+.btn-1:hover::before {
+    transform: translate(12px, 12px);
+}
+
+.btn-2{
+    background: #CE2D82;
+    color: #FBFAFB;
+    border-radius: 20px;
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+.btn-2::after, .btn-2::before {
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    background: #CE2D82;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+.btn-2:hover {
+    transform: translate(-12px, -12px)
+}
+.btn-2:hover::after {
+    transform: translate(6px, 6px)
+}
+.btn-2:hover::before {
+    transform: translate(12px, 12px);
+}
+
+.btn-3{
+    background-color: #5166f7;
+    color: #FBFAFB;
+    border-radius: 20px;
+    padding: 15px;
+    transition: transform 0.3s ease;
+    border: none;
+}
+.btn-3::after, .btn-3::before {
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    background: #5166f7;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+.btn-3:hover {
+    transform: translate(-12px, -12px)
+}
+.btn-3:hover::after {
+    transform: translate(6px, 6px)
+}
+.btn-3:hover::before {
+    transform: translate(12px, 12px);
+}
+
+
+
+::-webkit-scrollbar {
+    width: 14px; /* width of the entire scrollbar */
+}
+::-webkit-scrollbar-track {
+    background: #FBFAFB; /* color of the tracking area */
+}
+::-webkit-scrollbar-thumb {
+    background-color: #f07c07; /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 4px solid black; /* creates padding around scroll thumb */
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    } to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    } to {
+          transform: translateX(0);
+          opacity: 1;
+      }
+}
